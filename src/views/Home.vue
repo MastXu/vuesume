@@ -7,7 +7,7 @@
         <!-- 内容 -->
         <a-layout>
             <!-- 菜单 -->
-            <a-layout-sider class="layout-sider" width="320"><Menu/></a-layout-sider>
+            <a-layout-sider class="layout-sider" width="320"><a-affix><Menu/></a-affix></a-layout-sider>
             <!-- 正文部分 -->
             <a-layout class="layout-content">
                 <!-- 小屏侧边栏抽屉按钮 -->
@@ -21,6 +21,7 @@
                 <a-layout-content v-for="id in moduleIds" v-bind:key="id">
                     <About v-if="id === 'about'"/>
                     <Blog v-if="id === 'blog'"/>
+                    <Experience v-if="id === 'experience'"/>
                 </a-layout-content>
                 <!-- 页脚 -->
                 <a-layout-footer><Footer/></a-layout-footer>
@@ -41,6 +42,7 @@
     import Banner from '@/components/Banner.vue';
     import Menu from '@/components/Menu.vue';
     import About from '@/components/About.vue';
+    import Experience from '@/components/Experience.vue';
     import Blog from '@/components/Blog.vue';
     import Footer from '@/components/Footer.vue';
 
@@ -49,6 +51,7 @@
             Banner,
             Menu,
             About,
+            Experience,
             Blog,
             Footer,
         },
@@ -107,6 +110,11 @@
     @media screen and (min-width: $--screen-sm-min) {
         .sider-menu-trigger {
             display: none;
+        }
+
+        .layout-sider {
+            box-shadow: 1px 0 5px #e0e0e0;
+            z-index: 999;
         }
     }
 </style>

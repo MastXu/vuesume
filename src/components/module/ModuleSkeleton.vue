@@ -2,18 +2,18 @@
 
 <template>
     <div class="skeleton" v-if="display">
-        <a-skeleton v-for="num in seq" v-bind:key="num" data-aos="fade-right" active avatar :paragraph="{rows: 3}"/>
+        <a-skeleton v-for="num in seq" v-bind:key="num" data-aos="fade-in" active avatar :paragraph="{rows: 3}"/>
     </div>
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Vue, Prop} from 'vue-property-decorator';
     import _ from 'lodash';
 
     @Component({
         props: {
             display: Boolean,
-            number: Number
+            number: Number,
         },
         computed: {
             seq() {
